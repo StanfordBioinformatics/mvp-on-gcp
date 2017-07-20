@@ -1,0 +1,2 @@
+Running decryption on gs://gbsc-gcp-project-mvp-received-from-bina/418816877/726e0445-217f-48cd-9dcf-17c73dc0070e.tar.pgp
+Running decryption on gs://gbsc-gcp-project-mvp-received-from-bina/420902071/8418486d-8642-4fac-9c08-677e7997a8e2.tar.pgp

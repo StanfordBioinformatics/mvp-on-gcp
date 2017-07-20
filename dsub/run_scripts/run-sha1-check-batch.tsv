@@ -1,0 +1,2 @@
+--input-recursive INPUT_PATH	--output PASS_FILES	--output FAIL_FILES
+gs://gbsc-gcp-project-mvp-phase-2-data/data/bina-deliverables/40013463/20121d0d-136b-4f4e-acae-667132b8b89a/QC	gs://gbsc-gcp-project-mvp-phase-2-data/dsub/sha1sum/objects/40013463_pass.txt	gs://gbsc-gcp-project-mvp-phase-2-data/dsub/sha1sum/objects/40013463_fail.txt
