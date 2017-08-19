@@ -11,9 +11,15 @@
 ## Code
 ### FastQC
 
+#### Source MVP environment file
+```
+$ source mvp-profile.sh
+```
+
 #### Get list of bam files (& sample IDs) on GCS
 
 ```
+$ cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
 $ gsutil ls gs://${mvp_bucket}/data/bina-deliverables/*/*/Recalibration/alignments.bam > gs-bina-bam-${date_stamp}.txt
 $ cut -d'/' -f6 gs-bina-bam-${date_stamp}.txt > gs-bina-bam-sample-ids-${date_stamp}.txt
 ```
@@ -21,6 +27,7 @@ $ cut -d'/' -f6 gs-bina-bam-${date_stamp}.txt > gs-bina-bam-sample-ids-${date_st
 #### Get list of bam files that need fastqc
 
 ```
+$ cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
 $ gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/objects/*_alignments.bam.fastqc_data.txt > gs-bina-fastqc-data-${date_stamp}.txt
 $ cut -d '/' -f8 gs-bina-fastqc-data-${date_stamp}.txt | cut -d'_' -f1 > gs-bina-fastqc-data-sample-ids-${date_stamp}.txt
 $ diff --new-line-format="" --unchanged-line-format "" \
@@ -33,21 +40,17 @@ $ grep -F -f gs-bina-fastqc-data-missing-sample-ids-${date_stamp}.txt gs-bina-ba
 #### Create dsub TSV input file
 
 ```
-$ ./make-batch-tsv-from-input-sample.py -i file_accounting/fastqc-bam/gs-bina-fastqc-data-missing-${date_stamp}.txt -t inputs/process/fastqc-bam/fastqc/gs-bina-fastqc-data-missing-${date_stamp}.tsv -o gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/objects -s alignments.bam.fastqc_data.txt
+$ ${mvp_hub}/bin/make-batch-tsv-from-input-sample.py \
+-i ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}/gs-bina-fastqc-data-missing-${date_stamp}.txt \
+-t ${mvp_hub}/fastqc-bam/dsub-inputs/fastqc/gs-bina-fastqc-data-missing-${date_stamp}.tsv \
+-o gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/objects \
+-s alignments.bam.fastqc_data.txt
 ```
 
 #### Run dsub tasks
 
 ```
-dsub \
---zones ${mvp_region} \
---project ${mvp_project} \
---logging gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/logs/20${date_stamp} \
---image gcr.io/${mvp_project}/fastqc:1.01 \
---disk-size 500 \
---script fastqc.sh \
---tasks ${mvp_hub}/fastqc-bam/dsub-inputs/fastqc/gs-bina-fastqc-data-missing-${date_stamp}.tsv \
---dry-run
+$ ${mvp_hub}/fastqc-bam/dsub-scripts/run-fastqc-bam-fastqc.sh
 ```
 
 ### Text-to-table
