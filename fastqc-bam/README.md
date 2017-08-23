@@ -16,7 +16,7 @@
 $ source mvp-profile.sh
 ```
 
-#### Get list of bam files (& sample IDs) on GCS
+#### Get list of bam files (input) & sample IDs on GCS
 
 ```
 $ cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
@@ -24,12 +24,16 @@ $ gsutil ls gs://${mvp_bucket}/data/bina-deliverables/*/*/Recalibration/alignmen
 $ cut -d'/' -f6 gs-bina-bam-${date_stamp}.txt > gs-bina-bam-sample-ids-${date_stamp}.txt
 ```
 
-#### Get list of bam files that need fastqc
+#### Get list of fastqc data files (output) & sample IDs
 
 ```
 $ cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
 $ gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/objects/*_alignments.bam.fastqc_data.txt > gs-bina-fastqc-data-${date_stamp}.txt
 $ cut -d '/' -f8 gs-bina-fastqc-data-${date_stamp}.txt | cut -d'_' -f1 > gs-bina-fastqc-data-sample-ids-${date_stamp}.txt
+```
+
+#### Get difference between bam (input) and fastqc data (output) sample IDs
+```
 $ diff --new-line-format="" --unchanged-line-format "" \
 <(sort gs-bina-bam-sample-ids-${date_stamp}.txt) \
 <(sort gs-bina-fastqc-data-sample-ids-${date_stamp}.txt) \
@@ -37,7 +41,7 @@ $ diff --new-line-format="" --unchanged-line-format "" \
 $ grep -F -f gs-bina-fastqc-data-missing-sample-ids-${date_stamp}.txt gs-bina-bam-${date_stamp}.txt > gs-bina-fastqc-data-missing-${date_stamp}.txt
 ```
 
-#### Create dsub TSV input file
+#### Create dsub TSV task file to generate missing fastqc data files
 
 ```
 $ ${mvp_hub}/bin/make-batch-tsv-from-input-sample.py \
