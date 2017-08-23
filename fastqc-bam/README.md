@@ -9,7 +9,7 @@
 - Use make-batch-tsv-from-input-sample.py to generate dsub batch input
 
 ## Code
-### FastQC
+### 1. FastQC
 
 #### Source MVP environment file
 ```
@@ -57,7 +57,7 @@ $ ${mvp_hub}/bin/make-batch-tsv-from-input-sample.py \
 $ ${mvp_hub}/fastqc-bam/dsub-scripts/run-fastqc-bam-fastqc.sh
 ```
 
-### Text-to-table
+### 2. Text-to-table
 
 #### Source mvp environment file
 ```
@@ -108,7 +108,7 @@ $ cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
 $ gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/text-to-table/objects/*alignments.bam.fastqc_data.txt.csv > gs-bina-fastqc-bam-csv-${date_stamp}.txt
 ```
 
-### Concat
+### 3. Concat
 
 #### Run dsub task
 ```
