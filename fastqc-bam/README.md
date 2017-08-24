@@ -13,104 +13,121 @@
 
 #### Source MVP environment file
 ```
-$ source mvp-profile.sh
+source mvp-profile.sh
 ```
 
 #### Get list of bam files (input) & sample IDs on GCS
 
 ```
-$ cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
-$ gsutil ls gs://${mvp_bucket}/data/bina-deliverables/*/*/Recalibration/alignments.bam > gs-bina-bam-${date_stamp}.txt
-$ cut -d'/' -f6 gs-bina-bam-${date_stamp}.txt > gs-bina-bam-sample-ids-${date_stamp}.txt
+cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
+gsutil ls gs://${mvp_bucket}/data/bina-deliverables/*/*/Recalibration/alignments.bam \
+  > gs-bina-bam-${date_stamp}.txt
+cut -d'/' -f6 gs-bina-bam-${date_stamp}.txt \
+  > gs-bina-bam-sample-ids-${date_stamp}.txt
 ```
 
 #### Get list of fastqc data files (output) & sample IDs
 
 ```
-$ cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
-$ gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/objects/*_alignments.bam.fastqc_data.txt > gs-bina-fastqc-data-${date_stamp}.txt
-$ cut -d '/' -f8 gs-bina-fastqc-data-${date_stamp}.txt | cut -d'_' -f1 > gs-bina-fastqc-data-sample-ids-${date_stamp}.txt
+cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
+gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/objects/*_alignments.bam.fastqc_data.txt \
+  > gs-bina-fastqc-data-${date_stamp}.txt
+cut -d '/' -f8 gs-bina-fastqc-data-${date_stamp}.txt \
+  | cut -d'_' -f1 > gs-bina-fastqc-data-sample-ids-${date_stamp}.txt
 ```
 
 #### Get difference between bam (input) and fastqc data (output) sample IDs
 ```
-$ diff --new-line-format="" --unchanged-line-format "" \
-<(sort gs-bina-bam-sample-ids-${date_stamp}.txt) \
-<(sort gs-bina-fastqc-data-sample-ids-${date_stamp}.txt) \
-> gs-bina-fastqc-data-missing-sample-ids-${date_stamp}.txt
-$ grep -F -f gs-bina-fastqc-data-missing-sample-ids-${date_stamp}.txt gs-bina-bam-${date_stamp}.txt > gs-bina-fastqc-data-missing-${date_stamp}.txt
+diff --new-line-format="" --unchanged-line-format "" \
+  <(sort gs-bina-bam-sample-ids-${date_stamp}.txt) \
+  <(sort gs-bina-fastqc-data-sample-ids-${date_stamp}.txt) \
+  > gs-bina-fastqc-data-missing-sample-ids-${date_stamp}.txt
+grep \
+  -F \
+  -f gs-bina-fastqc-data-missing-sample-ids-${date_stamp}.txt \
+  gs-bina-bam-${date_stamp}.txt \
+  > gs-bina-fastqc-data-missing-${date_stamp}.txt
 ```
 
 #### Create dsub TSV task file to generate missing fastqc data files
 
 ```
-$ ${mvp_hub}/bin/make-batch-tsv-from-input-sample.py \
--i ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}/gs-bina-fastqc-data-missing-${date_stamp}.txt \
--t ${mvp_hub}/fastqc-bam/dsub-inputs/fastqc/gs-bina-fastqc-data-missing-${date_stamp}.tsv \
--o gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/objects \
--s alignments.bam.fastqc_data.txt
+${mvp_hub}/bin/make-batch-tsv-from-input-sample.py \
+  -i ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}/gs-bina-fastqc-data-missing-${date_stamp}.txt \
+  -t ${mvp_hub}/fastqc-bam/dsub-inputs/fastqc/gs-bina-fastqc-data-missing-${date_stamp}.tsv \
+  -o gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/objects \
+  -s alignments.bam.fastqc_data.txt
 ```
 
 #### Run dsub tasks
 
 ```
-$ ${mvp_hub}/fastqc-bam/dsub-scripts/run-fastqc-bam-fastqc.sh
+${mvp_hub}/fastqc-bam/dsub-scripts/run-fastqc-bam-fastqc.sh
 ```
 
 ### 2. Text-to-table
 
 #### Source mvp environment file
 ```
-$ source mvp-profile.sh
+source mvp-profile.sh
 ```
 
 #### Get list of fastqc text & table files
 ```
-$ mkdir ${mvp_hub}/file_accounting/fastqc-bam/${date_stamp}
-$ cd ${mvp_hub}/file_accounting/fastqc-bam/${date_stamp}
-$ gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/objects/*alignments.bam.fastqc_data.txt > gs-bina-fastqc-bam-txt-${date_stamp}.txt
-$ gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/text-to-table/objects/*alignments.bam.fastqc_data.txt.csv > gs-bina-fastqc-bam-csv-${date_stamp}.txt
+mkdir ${mvp_hub}/file_accounting/fastqc-bam/${date_stamp}
+cd ${mvp_hub}/file_accounting/fastqc-bam/${date_stamp}
+gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/fastqc/objects/*alignments.bam.fastqc_data.txt \
+  > gs-bina-fastqc-bam-txt-${date_stamp}.txt
+gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/text-to-table/objects/*alignments.bam.fastqc_data.txt.csv \
+  > gs-bina-fastqc-bam-csv-${date_stamp}.txt
 ```
 
 
 #### Convert file lists to sample lists and get missing samples
 ```
-$ cut -d'/' -f8 gs-bina-fastqc-bam-txt-${date_stamp}.txt | cut -d'_' -f1 > gs-bina-fastqc-bam-txt-sample-ids-${date_stamp}.txt
-$ cut -d'/' -f8 gs-bina-fastqc-bam-csv-${date_stamp}.txt | cut -d'_' -f1 > gs-bina-fastqc-bam-csv-sample-ids-${date_stamp}.txt
-$ diff \
---new-line-format="" \
---unchanged-line-format "" \
-<(sort gs-bina-fastqc-bam-txt-sample-ids-${date_stamp}.txt) \
-<(sort gs-bina-fastqc-bam-csv-sample-ids-${date_stamp}.txt) \
-> gs-bina-fastqc-bam-csv-sample-ids-missing-${date_stamp}.txt
-$ grep -F -f gs-bina-fastqc-bam-csv-sample-ids-missing-${date_stamp}.txt gs-bina-fastqc-bam-txt-${date_stamp}.txt > gs-bina-fastqc-bam-csv-missing-${date_stamp}.txt
+cut -d'/' -f8 gs-bina-fastqc-bam-txt-${date_stamp}.txt \
+  | cut -d'_' -f1 > gs-bina-fastqc-bam-txt-sample-ids-${date_stamp}.txt
+cut -d'/' -f8 gs-bina-fastqc-bam-csv-${date_stamp}.txt \
+  | cut -d'_' -f1 > gs-bina-fastqc-bam-csv-sample-ids-${date_stamp}.txt
+diff \
+  --new-line-format="" \
+  --unchanged-line-format "" \
+  <(sort gs-bina-fastqc-bam-txt-sample-ids-${date_stamp}.txt) \
+  <(sort gs-bina-fastqc-bam-csv-sample-ids-${date_stamp}.txt) \
+  > gs-bina-fastqc-bam-csv-sample-ids-missing-${date_stamp}.txt
+grep \
+  -F \
+  -f gs-bina-fastqc-bam-csv-sample-ids-missing-${date_stamp}.txt \
+  gs-bina-fastqc-bam-txt-${date_stamp}.txt \
+  > gs-bina-fastqc-bam-csv-missing-${date_stamp}.txt
 ````
 
 #### Convert file list to dsub TSV files
 ```
-$ ${mvp_hub}/bin/make-batch-tsv-from-input-file.py \
--i ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}/gs-bina-fastqc-bam-csv-missing-${date_stamp}.txt \
--t ${mvp_hub}/fastqc-bam/dsub-inputs/text-to-table/gs-bina-fastqc-bam-csv-missing-${date_stamp}.tsv \
--o gs://${mvp_bucket}/dsub/fastqc-bam/text-to-table/objects \
--s csv \
--c fastqc \
--e fastqc-bam-${date_stamp}
+${mvp_hub}/bin/make-batch-tsv-from-input-file.py \
+  -i ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}/gs-bina-fastqc-bam-csv-missing-${date_stamp}.txt \
+  -t ${mvp_hub}/fastqc-bam/dsub-inputs/text-to-table/gs-bina-fastqc-bam-csv-missing-${date_stamp}.tsv \
+  -o gs://${mvp_bucket}/dsub/fastqc-bam/text-to-table/objects \
+  -s csv \
+  -c fastqc \
+  -e fastqc-bam-${date_stamp}
 ```
 
 #### Run dsub task
 ```
-$ ${mvp_hub}/fastqc-bam/dsub-scripts/run-fastqc-bam-t2t.sh
+${mvp_hub}/fastqc-bam/dsub-scripts/run-fastqc-bam-t2t.sh
 ```
 
 #### Get new list of completed results files
 ```
-$ cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
-$ gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/text-to-table/objects/*alignments.bam.fastqc_data.txt.csv > gs-bina-fastqc-bam-csv-${date_stamp}.txt
+cd ${mvp_hub}/fastqc-bam/file-accounting/${date_stamp}
+gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/text-to-table/objects/*alignments.bam.fastqc_data.txt.csv \
+  > gs-bina-fastqc-bam-csv-${date_stamp}.txt
 ```
 
 ### 3. Concat
 
 #### Run dsub task
 ```
-$ ${mvp_hub}/fastqc-bam/dsub-scripts/run-fastqc-bam-concat.sh
+${mvp_hub}/fastqc-bam/dsub-scripts/run-fastqc-bam-concat.sh
 ```
