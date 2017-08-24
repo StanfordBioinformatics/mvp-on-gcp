@@ -1,6 +1,6 @@
 # fastqc-bam
 
-## What do I need to do?
+# What do I need to do?
 - Get list of all variants.gvcf.gz files: IN-PROGRESS
 - Get list of all samples?
 - Get list of all rtg_vcfstats.txt files
@@ -8,8 +8,8 @@
 - Find difference between lists
 - Use make-batch-tsv-from-input-sample.py to generate dsub batch input
 
-## Code
-### 1. FastQC
+# Code
+## 1. FastQC
 
 #### Source MVP environment file
 ```
@@ -65,7 +65,7 @@ ${mvp_hub}/bin/make-batch-tsv-from-input-sample.py \
 ${mvp_hub}/fastqc-bam/dsub-scripts/run-fastqc-bam-fastqc.sh
 ```
 
-### 2. Text-to-table
+## 2. Text-to-table
 
 #### Source mvp environment file
 ```
@@ -125,7 +125,7 @@ gsutil ls gs://${mvp_bucket}/dsub/fastqc-bam/text-to-table/objects/*alignments.b
   > gs-bina-fastqc-bam-csv-${date_stamp}.txt
 ```
 
-### 3. Concat
+## 3. Concat
 
 #### Run dsub task
 ```
