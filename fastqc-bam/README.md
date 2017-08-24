@@ -1,12 +1,11 @@
 # fastqc-bam
 
 # What do I need to do?
-- Get list of all variants.gvcf.gz files: IN-PROGRESS
-- Get list of all samples?
-- Get list of all rtg_vcfstats.txt files
-- Convert to sample lists
-- Find difference between lists
-- Use make-batch-tsv-from-input-sample.py to generate dsub batch input
+- Get list of sample IDs for all bam files on GCS
+- Get list of sample IDs for all fastqc data files GCS
+- Compare lists to find samples missing fastqc data files
+- Use custom python script to create dsub TSV input file for missing samples
+- Run dsub tasks
 
 # Code
 ## 1. FastQC
