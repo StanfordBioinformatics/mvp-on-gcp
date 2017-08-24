@@ -1,6 +1,11 @@
 # Samtools Flagstat
 
 # What do I need to do?
+- Get list of sample IDs for all bam files on GCS
+- Get list of sample IDs for all flagstat TSV files on GCS
+- Compare lists to find samples missing flagstat files
+- Use custom python script to create dsub TSV input file for missing samples
+- Run dsub tasks
 
 # Code
 ## 1. Flagstat
@@ -22,10 +27,16 @@ cut -d'/' -f6 gs-bina-bam-${date_stamp}.txt \
 
 #### Get list of bam files that need flagstat
 ```
-gsutil ls gs://${mvp_bucket}/dsub/flagstat/samtools/objects/*.flagstat.tsv > gs-bina-flagstat-${date_stamp}.txt
-cut -d'/' -f8 gs-bina-flagstat-${date_stamp}.txt | cut -d'_' -f1 > gs-bina-flagstat-sample-ids-${date_stamp}.txt
-cut -d'/' -f6 gs-bina-bam-${date_stamp}.txt > gs-bina-bam-sample-ids-${date_stamp}.txt
-diff --new-line-format="" --unchanged-line-format "" \
+gsutil ls gs://${mvp_bucket}/dsub/flagstat/samtools/objects/*.flagstat.tsv \
+  > gs-bina-flagstat-${date_stamp}.txt
+cut -d'/' -f8 gs-bina-flagstat-${date_stamp}.txt \
+  | cut -d'_' -f1 \
+  > gs-bina-flagstat-sample-ids-${date_stamp}.txt
+cut -d'/' -f6 gs-bina-bam-${date_stamp}.txt \
+  > gs-bina-bam-sample-ids-${date_stamp}.txt
+diff \
+  --new-line-format="" \
+  --unchanged-line-format "" \
   <(sort gs-bina-bam-sample-ids-${date_stamp}.txt) \
   <(sort gs-bina-flagstat-sample-ids-${date_stamp}.txt) > \
   gs-bina-flagstat-missing-sample-ids-${date_stamp}.txt
