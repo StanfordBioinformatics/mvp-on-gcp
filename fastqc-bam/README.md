@@ -2,7 +2,7 @@
 
 # What do I need to do?
 - Get list of sample IDs for all bam files on GCS
-- Get list of sample IDs for all fastqc data files GCS
+- Get list of sample IDs for all fastqc data files on GCS
 - Compare lists to find samples missing fastqc data files
 - Use custom python script to create dsub TSV input file for missing samples
 - Run dsub tasks
