@@ -14,11 +14,11 @@
     2. Repeat steps 2-6
     
 # Files
-* descrypt.sh: Store environment variables specific to decryption & integrity check tasks.
-* dir-accountant.sh: Get a list of encrypted tar.pgp archives on a GCS path. 
+* **descrypt.sh**: Store environment variables specific to decryption & integrity check tasks.
+* **dir-accountant.sh**: Get a list of encrypted tar.pgp archives on a GCS path. 
 For each archive, check if there is a directory with the same basename on a different GCS path. 
 If no corresponding directory found, launch a dsub job to decrypt & extract that tar.pgp archive.
-* call-integrity-check.sh: 
+* **call-integrity-check.sh**: 
     
 # Code
 ## 1. Decrypt + Extract
