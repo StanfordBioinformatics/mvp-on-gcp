@@ -1,0 +1,12 @@
+# Google Genomics dsub repo
+dsub
+
+# Working copy of bash mvp-profile
+mvp-profile.sh
+
+DEPRECATED
+dsub-scripts
+
+# Sublime text editor files
+*.sublime-project
+*.sublime-workspace
