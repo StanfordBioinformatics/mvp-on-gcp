@@ -1,1 +1,0 @@
-cat ${INPUT_FILES}/* > {CONCAT_FILE}	
