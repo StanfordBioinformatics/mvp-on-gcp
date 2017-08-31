@@ -15,9 +15,10 @@
     
 # Files
 * **descrypt.sh**: Store environment variables specific to decryption & integrity check tasks.
-* **dir-accountant.sh**: Get a list of encrypted tar.pgp archives on a GCS path. 
-For each archive, check if there is a directory with the same basename on a different GCS path. 
+* **global-dir-accountant.sh**: Get a list of encrypted tar.pgp archives. 
+For each archive, check if there is a corresponding sample directory exists. 
 If no corresponding directory found, launch a dsub job to decrypt & extract that tar.pgp archive.
+* **sample-dir-accountant.sh**: Same functions as global-dir-accountant.sh except user specifies a single sample to investigate.
 * **call-integrity-check.sh**: 
     
 # Code
