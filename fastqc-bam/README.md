@@ -1,4 +1,5 @@
 # fastqc-bam
+Add overview of what this does
 
 # What do I need to do?
 - Get list of sample IDs for all bam files on GCS
