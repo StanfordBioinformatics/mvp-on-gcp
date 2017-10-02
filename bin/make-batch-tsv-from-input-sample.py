@@ -42,21 +42,7 @@ def parse_args():
 
 def main():
 
-    """
-    if len(sys.argv) < 2:
-        print 'No arguments'
-        sys.exit()
-    else:
-        input_file = sys.argv[1]
-        table_file = sys.argv[2]
-        gs_out_dir = sys.argv[3]
-        gs_out_suffix = sys.argv[4]
-        schema = sys.argv[5]
-        series = sys.argv[6]
-    """
-
     args = parse_args()
-    #pdb.set_trace()
         
     input_file = args.input_file
     table_file = args.table_file
@@ -67,9 +53,11 @@ def main():
 
     dirname = os.path.dirname(input_file)
     basename = os.path.basename(input_file)
-    #output_file = "{}/{}.tsv".format(dirname,basename)
 
-    # Sample is 4th element in path
+    # Don't create TSV file if input is empty
+    if os.stat(input_file).st_size == 0:
+        print "Input file is empty; skipping."
+        sys.exit()
 
 
     out_fh = open(table_file, 'w')
