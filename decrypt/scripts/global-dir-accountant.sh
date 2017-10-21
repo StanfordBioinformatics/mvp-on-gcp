@@ -78,7 +78,7 @@ for tar in ${tar_pgps}; do
         --logging gs://${mvp_bucket}/dsub/decrypt/logs/${date_stamp} \
         --image gcr.io/${mvp_project}/gs_decrypt_dflow \
         --disk-size ${disk_size} \
-        --script decrypt.sh \
+        --script ${mvp_hub}/decrypt/dsub-scripts/decrypt.sh \
         --input TARFILE=${tar} \
         --input PASSPHRASE=gs://${mvp_decrypt_pass} \
         --input ASCPAIR=gs://${mvp_decrypt_ascpair} \
