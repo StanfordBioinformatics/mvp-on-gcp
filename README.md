@@ -20,7 +20,15 @@ git clone https://github.com/StanfordBioinformatics/mvp-on-gcp.git
 # (You can do this in a directory of your choosing.)
 virtualenv -p /usr/bin/python/3.5 --no-site-packages mvp_libs
 source mvp_libs/bin/activate
-source mvp-profile.sh
-jupyter notebook
+# source mvp-profile.sh
+```
+3. Install Jupyter notebooks and Jupyter kernel for bash
+```
+pip3 install jupyter
+pip3 install bash_kernel
 ```
 
+4. Launch Jupyter notebook
+```
+jupyter notebook
+```
