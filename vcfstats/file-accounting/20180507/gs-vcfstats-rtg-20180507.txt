@@ -1,0 +1,5 @@
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/rtg-tools/objects/400744881_rtg_vcfstats.txt
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/rtg-tools/objects/402940933_rtg_vcfstats.txt
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/rtg-tools/objects/413501074_rtg_vcfstats.txt
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/rtg-tools/objects/417990253_rtg_vcfstats.txt
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/rtg-tools/objects/418788980_rtg_vcfstats.txt

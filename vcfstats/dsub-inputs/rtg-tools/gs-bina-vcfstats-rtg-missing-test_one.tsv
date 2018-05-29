@@ -1,0 +1,2 @@
+--input INPUT	--output OUTPUT	--env SAMPLE_ID	--env SCHEMA	--env SERIES
+gs://gbsc-gcp-project-mvp-phase-2-data/data/bina-deliverables/400744881/2b2653a3-be13-49ee-94c8-44810268d9de/VariantCalling/variants.gvcf.gz	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/rtg-tools/objects/400744881_rtg_vcfstats.txt	400744881	None	None

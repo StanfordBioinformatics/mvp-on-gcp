@@ -1,0 +1,5 @@
+--input INPUT	--output OUTPUT	--env SAMPLE_ID	--env SCHEMA	--env SERIES
+gs://gbsc-gcp-project-mvp-phase-2-data/data/bina-deliverables/40013463/20121d0d-136b-4f4e-acae-667132b8b89a/Recalibration/alignments.bam	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/fastqc/objects/40013463/*	40013463	0	0
+gs://gbsc-gcp-project-mvp-phase-2-data/data/bina-deliverables/400264758/650fa686-c297-4398-8b6a-0cfa24a58846/Recalibration/alignments.bam	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/fastqc/objects/400264758/*	400264758	0	0
+gs://gbsc-gcp-project-mvp-phase-2-data/data/bina-deliverables/400421286/8990b9eb-84d0-4840-b226-3ab3994c1e45/Recalibration/alignments.bam	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/fastqc/objects/400421286/*	400421286	0	0
+gs://gbsc-gcp-project-mvp-phase-2-data/data/bina-deliverables/400470164/e86a618c-7db0-4b5a-99b9-4bb51df5fde0/Recalibration/alignments.bam	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/fastqc/objects/400470164/*	400470164	0	0

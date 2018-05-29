@@ -1,0 +1,4 @@
+--input INPUT	--output OUTPUT	--env SAMPLE_ID	--env SCHEMA	--env SERIES
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/fastqc/objects/40013463_alignments.bam.fastqc_data.txt	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/text-to-table/objects/40013463_alignments.bam.fastqc_data.txt.csv	40013463	fastqc	fastqc-bam-20180517
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/fastqc/objects/40050177_alignments.bam.fastqc_data.txt	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/text-to-table/objects/40050177_alignments.bam.fastqc_data.txt.csv	40050177	fastqc	fastqc-bam-20180517
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/fastqc/objects/40101045_alignments.bam.fastqc_data.txt	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/text-to-table/objects/40101045_alignments.bam.fastqc_data.txt.csv	40101045	fastqc	fastqc-bam-20180517

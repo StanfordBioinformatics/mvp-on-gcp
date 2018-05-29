@@ -1,0 +1,3 @@
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/flagstat/text-to-table/objects/40013463_alignments.bam.flagstat.tsv.csv
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/flagstat/text-to-table/objects/40050177_alignments.bam.flagstat.tsv.csv
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/flagstat/text-to-table/objects/40101045_alignments.bam.flagstat.tsv.csv

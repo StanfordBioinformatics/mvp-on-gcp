@@ -1,0 +1,3 @@
+gs://gbsc-gcp-project-mvp-phase-2-data/data/bina-deliverables/402940933/27961955-fa98-4565-94e8-fdd3f1f1a736/VariantCalling/variants.gvcf.gz
+gs://gbsc-gcp-project-mvp-phase-2-data/data/bina-deliverables/413501074/a2d275a3-1c7d-4ff5-9f8d-5515bd5e5d3f/VariantCalling/variants.gvcf.gz
+gs://gbsc-gcp-project-mvp-phase-2-data/data/bina-deliverables/417990253/bfa9b6fa-b63e-4e52-8227-3bfc499739c7/VariantCalling/variants.gvcf.gz

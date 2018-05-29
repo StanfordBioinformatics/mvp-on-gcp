@@ -1,0 +1,3 @@
+--input INPUT	--output OUTPUT	--env SAMPLE_ID	--env SCHEMA	--env SERIES
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/rtg-tools/objects/400744881_rtg_vcfstats.txt	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/text-to-table/objects/400744881_rtg_vcfstats.txt.csv	400744881	rtg_vcfstats	rtg-vcfstats-20180507
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/rtg-tools/objects/402940933_rtg_vcfstats.txt	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/text-to-table/objects/402940933_rtg_vcfstats.txt.csv	402940933	rtg_vcfstats	rtg-vcfstats-20180507
