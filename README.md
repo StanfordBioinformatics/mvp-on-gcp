@@ -1,4 +1,4 @@
-# mvp-on-gvp-practice_ver
+# mvp-on-gvp-tar_ver
 This branch is intended to test mvp-on-gvp with a small number of samples
 
 # Test Steps
@@ -16,7 +16,7 @@ This branch is intended to test mvp-on-gvp with a small number of samples
 * Clone the mvp-on-gcp repo
 
 ```
-git clone https://github.com/StanfordBioinformatics/mvp-on-gcp/tree/practice_ver.git
+git clone https://github.com/StanfordBioinformatics/mvp-on-gcp/tree/tar_ver.git
 ```
 
 ## Run Quality Control tools
@@ -65,6 +65,6 @@ datalab connect [instance-name]
 
 * Upload *.ipynb on datalab
 
-	mvp-on-gcp/coherence-check/mvp-coherence-check.ipynb
+	mvp-on-gcp/coherence-check/mvp-coherence-check_tar.ipynb
 	
 * Import BigQuery tables into coherence-check ipynb

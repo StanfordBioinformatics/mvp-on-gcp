@@ -1,0 +1,4 @@
+gs://gbsc-gcp-project-mvp-from-personalis-archived/SHIP4421010/
+gs://gbsc-gcp-project-mvp-from-personalis-archived/SHIP4421025/
+gs://gbsc-gcp-project-mvp-from-personalis-archived/SHIP4421054/
+gs://gbsc-gcp-project-mvp-from-personalis-archived/logs/

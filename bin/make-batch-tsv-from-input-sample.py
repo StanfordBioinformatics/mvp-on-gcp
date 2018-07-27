@@ -70,6 +70,7 @@ def main():
     #output_file = "{}/{}.tsv".format(dirname,basename)
 
     # Sample is 4th element in path
+    # Sample is 5th element in path	-- by Jina (05/31/2018)
 
     out_fh = open(table_file, 'w')
     # Write header
@@ -79,6 +80,7 @@ def main():
             in_path = line.strip()
             path_elements = in_path.split('/')
             sample_id = path_elements[5]
+            sample_id = sample_id.split('.')[0]	# by Jina (05/31/2018) with chr number
             out_path = "{0}/{1}_{2}".format(gs_out_dir, sample_id, gs_out_suffix)
             out_fh.write("{}\t{}\t{}\t{}\t{}\n".format(in_path, out_path, sample_id, schema, series))
     out_fh.close()

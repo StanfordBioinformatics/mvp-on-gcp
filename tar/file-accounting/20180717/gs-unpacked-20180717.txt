@@ -1,0 +1,1 @@
+gs://gbsc-gcp-project-mvp-from-personalis-archived/logs/

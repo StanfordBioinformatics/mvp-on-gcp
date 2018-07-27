@@ -1,0 +1,4 @@
+--input INPUT	--output OUTPUT	--env SAMPLE_ID	--env SCHEMA	--env SERIES
+gs://gbsc-gcp-project-mvp-from-personalis/SHIP4421010_tar/SHIP4421010.tar	gs://gbsc-gcp-project-mvp-from-personalis-archived/SHIP4421010/*	SHIP4421010	None	None
+gs://gbsc-gcp-project-mvp-from-personalis/SHIP4421025_tar/SHIP4421025.tar	gs://gbsc-gcp-project-mvp-from-personalis-archived/SHIP4421025/*	SHIP4421025	None	None
+gs://gbsc-gcp-project-mvp-from-personalis/SHIP4421054_tar/SHIP4421054.tar	gs://gbsc-gcp-project-mvp-from-personalis-archived/SHIP4421054/*	SHIP4421054	None	None

@@ -70,6 +70,8 @@ def main():
             out_path = "{0}/{1}.{2}".format(gs_out_dir, filename, gs_out_suffix)
 
             sample_id = filename.split('_')[0]
+            #sample_id = filename.split('_')[0:2]	# By Jina (05/31/2018) with chr number
+            series = "{0}_{1}".format(filename.split('_')[1],filename.split('_')[2])		# By Jina (06/27/2018) for chr number
             out_fh.write("{}\t{}\t{}\t{}\t{}\n".format(in_path, out_path, sample_id, schema, series))
     out_fh.close()
 

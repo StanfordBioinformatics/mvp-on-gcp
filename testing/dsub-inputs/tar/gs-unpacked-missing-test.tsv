@@ -1,0 +1,2 @@
+--input INPUT	--output-recursive OUTPUT_PATH	--env SAMPLE_ID	--env SCHEMA	--env SERIES
+gs://gbsc-gcp-project-mvp-group/for-jina/test/tar/test_onlyfd.tar	gs://gbsc-gcp-project-mvp-group/for-jina/test/tar/	TEST	None	None

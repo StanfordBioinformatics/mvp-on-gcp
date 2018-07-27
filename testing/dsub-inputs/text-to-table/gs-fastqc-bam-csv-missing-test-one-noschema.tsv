@@ -1,0 +1,2 @@
+--input INPUT	--output OUTPUT	--env SAMPLE_ID	--env SERIES	--env JSON
+gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/fastqc/objects/SHIP4420818_chromosome_10_alignments.bam.fastqc_data.txt	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/test/text-to-table/SHIP4420818_chromosome_10_test.csv	SHIP4420818	fastqc-bam-20180531	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/test/text-to-table/fastqc.json

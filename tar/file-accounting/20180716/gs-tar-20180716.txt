@@ -1,0 +1,3 @@
+gs://gbsc-gcp-project-mvp-from-personalis/SHIP4421010_tar/SHIP4421010.tar
+gs://gbsc-gcp-project-mvp-from-personalis/SHIP4421025_tar/SHIP4421025.tar
+gs://gbsc-gcp-project-mvp-from-personalis/SHIP4421054_tar/SHIP4421054.tar
