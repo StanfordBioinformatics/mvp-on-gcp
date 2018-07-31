@@ -1,4 +1,0 @@
---input INPUT	--output OUTPUT	--env SAMPLE_ID	--env SCHEMA	--env SERIES
-gs://gbsc-gcp-project-mvp-group/for-jina/dsub/flagstat/samtools/objects/40013463_alignments.bam.flagstat.tsv	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/flagstat/text-to-table/objects/40013463_alignments.bam.flagstat.tsv.csv	40013463	flagstat	flagstat-20180503
-gs://gbsc-gcp-project-mvp-group/for-jina/dsub/flagstat/samtools/objects/40050177_alignments.bam.flagstat.tsv	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/flagstat/text-to-table/objects/40050177_alignments.bam.flagstat.tsv.csv	40050177	flagstat	flagstat-20180503
-gs://gbsc-gcp-project-mvp-group/for-jina/dsub/flagstat/samtools/objects/40101045_alignments.bam.flagstat.tsv	gs://gbsc-gcp-project-mvp-group/for-jina/dsub/flagstat/text-to-table/objects/40101045_alignments.bam.flagstat.tsv.csv	40101045	flagstat	flagstat-20180503

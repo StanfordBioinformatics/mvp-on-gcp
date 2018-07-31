@@ -1,3 +1,0 @@
-gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/text-to-table/objects/40013463_alignments.bam.fastqc_data.txt.csv
-gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/text-to-table/objects/40050177_alignments.bam.fastqc_data.txt.csv
-gs://gbsc-gcp-project-mvp-group/for-jina/dsub/fastqc-bam/text-to-table/objects/40101045_alignments.bam.fastqc_data.txt.csv

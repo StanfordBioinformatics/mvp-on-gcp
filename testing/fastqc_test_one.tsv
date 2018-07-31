@@ -1,0 +1,2 @@
+--input INPUT	--output OUTPUT	--env SAMPLE_ID	--env SCHEMA	--env SERIES
+gs://genomics-public-data/1000-genomes/bam/HG00308.mapped.ILLUMINA.bwa.FIN.low_coverage.20120522.bam	gs://gbsc-gcp-project-mvp-group/for-jina/publicfiletest/objects/111111111_bam.txt	111111111	0	0

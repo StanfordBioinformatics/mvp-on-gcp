@@ -1,2 +1,0 @@
-gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/text-to-table/objects/400744881_rtg_vcfstats.txt.csv
-gs://gbsc-gcp-project-mvp-group/for-jina/dsub/vcfstats/text-to-table/objects/402940933_rtg_vcfstats.txt.csv
